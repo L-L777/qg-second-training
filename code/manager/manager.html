@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入基础样式 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入各个元素样式 -->
+    <link rel="stylesheet" href="./css/manager.css">
+    <!-- 引入阿里矢量图标库 -->
+    <link rel="stylesheet" href="../font_4510220_rhz4kf202zg/iconfont.css">
+    <!-- 引入js基础代码 -->
+    <script src="./js/manager.js"></script>
+    <!-- 管理会议纪要 -->
+    <script src="./js/managemeeing.js"></script>
+    <!-- 疑问反馈 -->
+    <script src="./js/dealquestion.js"></script>
+    <!-- 筛选 -->
+    <script src="./js/select.js"></script>
+    <!-- 搜索 -->
+    <script src="./js/search.js"></script>
+</head>
+
+<body>
+    <div class="all ">
+        <!-- 侧边栏 -->
+        <div class="left">
+            <div class="nav ">
+                <header>
+                    <div class="image-text">
+                        <span class="image">
+                            <img src="../image/03.gif" alt="">
+                        </span>
+                        <div class="text logo-text">
+                            <span class="username"></span>
+                            <span class="identify">manager</span>
+                        </div>
+                    </div>
+                    <i class="iconfont icon-youjiantou toggle"></i>
+                </header>
+                <div class="menubar">
+                    <div class="menu">
+                        <li class="function search-box">
+                            <i class="iconfont icon-sousuo icon"></i>
+                            <input type="text" placeholder="搜索···">
+                        </li>
+                        <ul class="search">
+                            <!-- <li class="result">
+                                <span class="key">dsadfas</span>
+                                <span>sdhfjahf</span>
+                                <span class="nature">content</span>
+                                <span class="hidden"></span>
+                            </li> -->
+                            
+                        </ul>
+                        <ul class="menu-links">
+                            <li class="function t meeting active">
+                                <a href="">
+                                    <i class="iconfont icon-huiyiguanli icon"></i>
+                                    <span class="text nac-text">管理会议纪要</span>
+                                </a>
+                            </li>
+                            <li class="function t question">
+                                <a href="">
+                                    <i class="iconfont icon-comment-check icon"></i>
+                                    <span class="text nac-text">疑问/反馈</span>
+                                </a>
+                            </li>
+                            <li class="function t select">
+                                <a href="">
+                                    <i class="iconfont icon-shaixuan icon"></i>
+                                    <span class="text nac-text">筛选</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom-content">
+                        <li class="function t out">
+                            <a href="#">
+                                <i class="iconfont icon-tuichudenglu3 icon"></i>
+                                <span class="text nac-text">注销</span>
+                            </a>
+                        </li>
+                        <li class="mode function t">
+                            <a href="#">
+                                <div class="sun-moon">
+                                    <i class="iconfont icon-baitianmoshimingliangmoshi icon sun"></i>
+                                    <i class="iconfont icon-yejianmoshi icon moon"></i>
+                                </div>
+                                <span class="text nac-text mode-text">夜间模式</span>
+                                <div class="toggle-switch">
+                                    <span class="switch"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心内容 -->
+        <div class="main">
+            <div class="content w">
+                <div class="titleBox">
+                    <h2 class="title">会议纪要管理系统</h2>
+                </div>
+                <!-- 轮播图 -->
+                <div class="scrollpic">
+                    <div class="til">
+                        <h3>近期会议展示</h3>
+                    </div>
+                    <div class="scroll">
+                        <button class="scrollBtn prev"><i class="iconfont icon-zuojiantou icon"></i></button>
+                        <button class="scrollBtn next"><i class="iconfont icon-youjiantou icon"></i></button>
+                        <div class="pic">
+                            <img src="../image/01.jpg" alt="">
+                            <img src="../image/02.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="title">
+                        <div class="theme">
+                            <p>hsdjkhfjksfhajk</p>
+                            <p class="hidden"></p>
+                        </div>
+                        <div class="theme hidden">
+                            <p>hsdjkhfjksfhajk</p>
+                            <p class="hidden"></p>
+                        </div>
+                        <div class="theme hidden">
+                            <p>hsdjkhfjksfhajk</p>
+                            <p class="hidden"></p>
+                        </div>
+                        
+                    </div>
+                    <div class="bottom">
+                        <span class="circle"></span>
+                        <span class="circle"></span>
+                        <span class="circle"></span>
+                    </div>
+                </div>
+                <!-- 管理会议纪要 -->
+                <div class="r_meeting">
+                    <div class="til">
+                        <h3>管理会议纪要</h3>
+                    </div>
+                    <div class="cont-meeting">
+                        <div class="add">
+                            <button class="addBtn">增加会议纪要</button>
+                        </div>
+                        <div class="export">
+                            <input type="text" placeholder="纪要数量">
+                            <button>导出</button>
+                        </div>
+                        <div class="main-cont">
+                            <ul>
+                                <li class="theli">
+                                    <div class="cont">
+                                        <div class="image">
+                                            <img src="../image/04.jpg" alt="">
+                                        </div>
+                                        <div class="message">
+                                            <div class="title">
+                                                <span class="text">标题：</span>
+                                                <span class="m_t">asddsdfsadfdsf</span>
+                                            </div>
+                                            <div class="person">
+                                                <span class="text">上传者：</span>
+                                                <span class="m_t">dhh</span>
+                                            </div>
+                                            <div class="time">
+                                                <span class="text">上传时间</span>
+                                                <span class="m_t">2020-07-07</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn">
+                                        <button class="check">查看</button>
+                                        <button class="delete">删除</button>
+
+                                    </div>
+                                    <div class="hidden">hdjksfhdjskahf</div>
+                                </li>
+                                <li class="theli">
+                                    <div class="cont">
+                                        <div class="image">
+                                            <img src="../image/02.jpg" alt="">
+                                        </div>
+                                        <div class="message">
+                                            <div class="title">
+                                                <span class="text">标题：</span>
+                                                <span class="m_t">asddsdfsadfdsf</span>
+                                            </div>
+                                            <div class="person">
+                                                <span class="text">上传者：</span>
+                                                <span class="m_t">dhh</span>
+                                            </div>
+                                            <div class="time">
+                                                <span class="text">上传时间</span>
+                                                <span class="m_t">2020-07-07</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn">
+                                        <button class="check">查看</button>
+                                        <button class="delete">删除</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 处理和反馈 -->
+                <div class="deal">
+                    <div class="til">
+                        <h3>疑问反馈</h3>
+                    </div>
+                    <div class="cont-deal">
+
+                        <div class="subject">
+                            <div class="status dont">已反馈</div>
+                            <div class="title">
+                                <span class="text">标题：</span>
+                                <span class="m_t">asdadssfafasfasfafa</span>
+                            </div>
+                            <div class="name">
+                                <span class="text">上传者：</span>
+                                <span class="m_t">asdagdshg</span>
+                            </div>
+                            <div class="time">
+                                <span class="text">上传时间：</span>
+                                <span class="m_t">adsda</span>
+                            </div>
+                            <div class="hidden">dhsajkhfjahsjashj</div>
+                        </div>
+                        <div class="subject"></div>
+                        <div class="subject"></div>
+                        <div class="subject"></div>
+
+                    </div>
+                </div>
+                <!-- 筛选 -->
+                <div class="want">
+                    <div class="til">
+                        <h3>筛选</h3>
+                    </div>
+                    <!-- 标签区 -->
+                    <span class="text">标签区：</span>
+                    <div class="sign">
+                        <span class="s_t">加急</span>
+                        <span class="s_t">比赛</span>
+                        <span class="s_t">外包</span>
+                        <span class="s_t">全体大会</span>
+                        <span class="s_t">组会</span>
+                        <span class="s_t">休闲</span>
+                        <span class="s_t">其他</span>
+                    </div>
+                    <!-- 筛选出来的内容 -->
+                    <div class="select_cont">
+                        <div class="subject">
+                            <div class="title">
+                                <span class="text">标题：</span>
+                                <span class="m_t">asdadssfafasfasfafa</span>
+                            </div>
+                            <div class="name">
+                                <span class="text">上传者：</span>
+                                <span class="m_t">asdagdshg</span>
+                            </div>
+                            <div class="time">
+                                <span class="text">上传时间：</span>
+                                <span class="m_t">adsda</span>
+                            </div>
+                            <div class="hidden"></div>
+                        </div>
+                        <div class="subject"></div>
+                        <div class="subject"></div>
+                        <div class="subject"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 提示框 -->
+        <div class="alert success">
+        
+        </div>
+        <div class="alert fail">
+        
+        </div>
+        
+        <!-- 蒙版 -->
+        <div class="mask">
+            <div class="box">
+                <div class="x"><button class="back">x</button></div>
+                <!-- 会议纪要 -->
+                <div class="checkMeeting">
+                    <header>
+                        <div class="title"><input type="text" placeholder="主题" class="gai disabled"></div>
+                        <div class="name">上传者：xxxxx</div>
+                        <div class="time">上传时间：xxxxx</div>
+                        <div class="kind">类型：xxxxx</div>
+                        <div class="sign">标签：xxxxx</div>
+                    </header>
+                    <div class="label">会议照片：</div>
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                    <div class="label">个人纪要：</div>
+                    <div class="txt"></div>
+                    <div class="label">会议内容：</div>
+                    <div class="cont">
+                        <textarea name="" id="" cols="" rows="" class="gai disabled">adsasdcadsa</textarea>
+                    </div>
+                    <div class="reason">
+                        <div class="til">通过或驳回的理由：</div>
+                        <textarea name="" id="" cols="" rows="10" class="" placeholder="你的理由："></textarea>
+                    </div>
+                    <div class="question">
+                        <div class="til">用户xx的疑问：</div>
+                        <textarea name="" id="" cols="" rows="10" class="disabled" placeholder=""></textarea>
+                    </div>
+                    <div class="answer">
+                        <div class="til">反馈：</div>
+                        <textarea name="" id="" cols="" rows="10" class="" placeholder="你的反馈"></textarea>
+                    </div>
+                    <div class="btn">
+                        <button class="change">修改</button>
+                        <button class="keep">保存</button>
+                        <button class="agree">通过</button>
+                        <button class="disagree">驳回</button>
+                        <button class="submit">提交</button>
+
+                    </div>
+                    <div class="hidden">adascac</div>
+                </div>
+                <!-- 上传会议纪要 -->
+                <div class="a-submit">
+                    <form action="">
+                        <div class="per">
+                            <!-- <input type="text" class="username" placeholder="用户名"> -->
+                            <input type="text" class="group" placeholder="组别">
+                            <!-- <input type="text" class="time" placeholder="上传时间"> -->
+                        </div>
+                        <div class="mee">
+                            <input type="text" class="theme" placeholder="会议主题">
+                            <textarea name="" id="" class="cont" cols="50" rows="20" placeholder="会议内容："></textarea>
+                        </div>
+                
+                        <div class="s-pic">
+                            <label for="pic" class="p">上传照片:</label>
+                            <input type="file" id="pic" class="pic" accept="image/*">
+                        </div>
+                        <!-- 照片预览 -->
+                        <div class="see">
+                            <!-- <img src="" alt=""> -->
+                        </div>
+                        <div class="s-txt">
+                            <label for="txt" class="t">上传个人纪要:</label>
+                            <input type="file" id="txt" class="txt" accept=".txt">
+                        </div>
+                        <div class="ttt">
+                            <!-- <img src="" alt=""> -->
+                        </div>
+                        <div class="le">
+                            <label for="lei" class="lei">类型:</label>
+                            <label for="workCheckBox">办公</label>
+                            <input type="radio" id="workCheckBox" name="activity" class="work">
+                            <label for="playCheckBox">娱乐</label>
+                            <input type="radio" id="playCheckBox" name="activity" class="play">
+                        </div>
+                
+                        <div class="sign">
+                            <p>标签：</p><br>
+                            <span class="bq">加急</span>
+                            <span class="bq">比赛</span>
+                            <span class="bq">外包</span>
+                            <span class="bq">全体大会</span>
+                            <span class="bq">组会</span>
+                            <span class="bq">休闲</span>
+                            <span class="bq">其他</span>
+                        </div>
+                        <div class="btn">
+                            <input type="button" value="重置" class="reset">
+                            <input type="button" value="提交" class="sub">
+                            <input type="button" value="保存" class="keep">
+                        </div>
+                
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- 侧边栏收缩功能 -->
+        <script>
+            const body = document.querySelector('body'),
+                shell = body.querySelector('.nav'),
+                toggle = body.querySelector('.toggle'),
+                searchBtn = body.querySelector('.search-box'),
+                modeSwitch = body.querySelector('.toggle-switch'),
+                modeText = body.querySelector('.mode-text');
+            const main = document.querySelector('.main')
+            // 点击toggle触发事件
+            toggle.addEventListener('click', () => {
+                // 切换close类
+                shell.classList.toggle('close');
+                main.classList.toggle('m_close');
+            })
+            // 点击searchBtn元素时触发事件
+            searchBtn.addEventListener('click', () => {
+                //移除close类
+                shell.classList.remove('close')
+                main.classList.remove('m_close')
+            })
+        </script>
+    </div>
+</body>
+
+</html>

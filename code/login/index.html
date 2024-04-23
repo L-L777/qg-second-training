@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: .3s;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../image/01.jpg');
+            background-size: 100% 100%;
+        }
+
+        .shell {
+            width: 350px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #ffffff49;
+            border-radius: 50px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset;
+        }
+
+        .title {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff9dff80;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            height: 50px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            color: rgb(0, 0, 0);
+            border: 5px solid transparent;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 100px;
+            padding: 5px 20px 0 20px;
+            transition: 0.3s;
+            font-size: 18px;
+            outline: none;
+        }
+
+        input[type="text"]:hover,
+        input[type="password"]:hover {
+            background: rgba(255, 255, 255, 0);
+            border: 5px solid #ffffff;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 100px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+
+        input::placeholder {
+            color: #92a7e8;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .Remember {
+            opacity: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #7597ff;
+        }
+
+        input[type=":checkbox"] {
+            display: block;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            background-color: #007bff;
+        }
+
+        #change {
+            border: none;
+            background-color: #ffffff00;
+            color: #7597ff;
+            font-size: 18px;
+        }
+        .register{
+            display: none;
+        }
+        .alert{
+    display: none;
+    font-size: 0.8em;
+    line-height: 50px;
+    text-align: center;
+    position: fixed;
+        z-index: 10000;
+        background-color: red;
+        width: 200px;
+        height: 50px;
+        left: 45%;
+        top: 30px;
+        border-radius: 5px;
+}
+.success{
+    background-color: #d4edda;
+    color: #355839;
+}
+.fail{
+    background-color: #f9d7db;
+    color: #9c4c65;
+}
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <h2 class="title">Login</h2>
+        <div class="login">
+<form action="">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <input type="button" value="Login" id="LoginBtn">
+</form>
+        </div>
+        <div class="register">
+            <form action="">
+                <input type="text" id="n-username" placeholder="New Username">
+                <input type="password" id="n-password" placeholder="New Password">
+                <input type="button" value="Register" id="RegisterBtn">
+            </form>
+        </div>
+        <div class="footer">
+            <div class="Remember">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">记住我</label>
+            </div>
+            <button id="change">去注册</button>
+        </div>
+    </div>
+    <!-- 提示框 -->
+    <div class="alert success">
+    
+    </div>
+    <div class="alert fail">
+    
+    </div>
+</body>
+<script>
+    if(localStorage.getItem('login')){
+          let rememberBox = document.querySelector('.Remember')
+        let note=JSON.parse(localStorage.getItem('login'))
+         document.getElementById('username').value=note.username
+       document.getElementById('password').value=note.password
+       let checkbox = rememberBox.querySelector('input')
+       checkbox.checked = true
+
+    }
+    document.getElementById('change').addEventListener('click', function () {
+        let login=document.querySelector('.login')
+        let register=document.querySelector('.register')
+        let title = document.querySelector('.title')
+        // let LoginBtn = document.getElementById('LoginBtn')
+        let rememberMeLabel = document.querySelector(".Remember")
+        let changeBtn = document.getElementById('change')
+         const submit = document.getElementById('LoginBtn')
+        if (title.innerHTML === 'Login') {
+            title.innerHTML = 'Register'
+            // LoginBtn.value = 'Register'
+            rememberMeLabel.style.opacity = '0'
+            changeBtn.innerHTML = '去登录'
+            login.style.display='none'
+           register.style.display='block'
+            // submit.classList.add('register')
+            // document.getElementById('username').value = ''
+            // document.getElementById('password').value = ''
+            // document.getElementById('username').placeholder = 'New Username'
+            // document.getElementById('password').placeholder = 'New Password'
+
+        } else {
+            title.innerHTML = 'Login'
+            // LoginBtn.value = 'Login'
+            rememberMeLabel.style.opacity = '1'
+            changeBtn.innerHTML = '去注册'
+            register.style.display = 'none'
+           login.style.display = 'block'
+            // submit.classList.remove('register')
+            // document.getElementById('username').placeholder = 'Username'
+            // document.getElementById('password').placeholder = 'Password'
+        }
+    })
+
+        document.getElementById('RegisterBtn').addEventListener('click', async function (e) {
+            const username = document.getElementById('n-username').value;
+            const password = document.getElementById('n-password').value;
+            if (!username || !password) {
+                document.querySelector('.fail').innerHTML = "用户名或密码不能为空"
+                document.querySelector('.fail').style.display = 'block'
+                setTimeout(() => {
+                    document.querySelector('.fail').innerHTML = ""
+                    document.querySelector('.fail').style.display = 'none'
+
+                }, 2000)
+                return;
+            }
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if(data==='用户名重复，请重新注册'){
+                        document.querySelector('.fail').innerHTML = data
+                        document.querySelector('.fail').style.display = 'block'
+                        setTimeout(() => {
+                            document.querySelector('.fail').innerHTML = ""
+                            document.querySelector('.fail').style.display = 'none'
+
+                        }, 2000)
+                    }else{
+                        document.querySelector('.success').innerHTML = data
+                        document.querySelector('.success').style.display = 'block'
+                        setTimeout(() => {
+                            document.querySelector('.success').innerHTML = ""
+                            document.querySelector('.success').style.display = 'none'
+
+                        }, 2000)
+                    }
+                      
+                } else {
+                    document.querySelector('.fail').innerHTML = "注册失败"
+                    document.querySelector('.fail').style.display = 'block'
+                    setTimeout(() => {
+                        document.querySelector('.fail').innerHTML = ""
+                        document.querySelector('.fail').style.display = 'none'
+
+                    }, 2000)
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    
+    document.getElementById('LoginBtn').addEventListener('click', async function (e) {
+
+            // console.log(111);
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (!username || !password) {
+                document.querySelector('.fail').innerHTML = "用户名或密码不能为空"
+                document.querySelector('.fail').style.display = 'block'
+                setTimeout(() => {
+                    document.querySelector('.fail').innerHTML = ""
+                    document.querySelector('.fail').style.display = 'none'
+
+                }, 2000)
+                return;
+            }
+            try {
+                const response = await fetch('http://localhost:3000/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('token', data.token);
+                    rememberMes(username,password)
+                    // 根据返回的数据进行处理
+                    if (data.manager === 1) {
+                        window.location.href = '/manager';
+                    } else {
+                        window.location.href = '/user';
+                    }
+                } else {
+                    document.querySelector('.fail').innerHTML = "用户名或密码错误"
+                    document.querySelector('.fail').style.display = 'block'
+                    setTimeout(() => {
+                        document.querySelector('.fail').innerHTML = ""
+                        document.querySelector('.fail').style.display = 'none'
+
+                    }, 2000)
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+   
+         let rememberBox = document.querySelector('.Remember')
+            let checkbox = rememberBox.querySelector('input')
+            let note = JSON.stringify({ username, password })
+            checkbox.addEventListener('click', function () {
+                if (!checkbox.checked) {
+                    localStorage.removeItem('login');
+                }
+            })
+ function rememberMes(username,password){
+    let note= JSON.stringify({ username, password })
+        if (checkbox.checked) {
+            localStorage.setItem('login', note);
+        } 
+  
+   
+ }
+    // 记得非空处理
+</script>
+
+</html>
