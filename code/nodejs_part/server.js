@@ -67,9 +67,9 @@ app.post('/', (req, res,next) => {
             res.status(500).send('Error');
         } else {
             if (results.length > 0) {
-                const manager = results[0].manager
+                const {manager,status} = results[0]
                 // console.log(manager);
-                const token = jwt.sign({ username: username, manager: manager }, 'secret_key', { expiresIn: '1h' });
+                const token = jwt.sign({ username: username, manager: manager,status:status }, 'secret_key', { expiresIn: '1h' });
                 res.locals.token = token; // 使用 res.locals 存储 token 数据
                 res.locals.username = username; // 使用 res.locals 存储 username 数据
                 req.session.token = token
@@ -332,6 +332,43 @@ app.get('/api/scroll', (req, res) => {
         } else {
             const responseData = { user: req.user, data: results }
             res.json(responseData)
+        }
+    });
+})
+// 用户申请管理员
+app.post('/api/userapply', (req, res) => {
+    const username=req.body.username
+    const sqlstr = 'update users set status=1 where username=? limit 1';
+    connection.query(sqlstr, [username], (error, results) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send(error);
+        } else {
+            res.json('submited successfully ');
+        }
+    });
+})
+// 获取用户表
+app.get('/api/userstatus', (req, res) => {
+    connection.query('SELECT * FROM users ', (error, results) => {
+        if (error) {
+            res.status(500).send('Error');
+        } else {
+            const responseData = { user: req.user, data: results }
+            res.json(responseData)
+        }
+    });
+})
+// 同意或否决申请
+app.post('/api/userstatus', (req, res) => {
+    const {username,manager} = req.body
+    const sqlstr = 'update users set status=0,manager=? where username=? limit 1';
+    connection.query(sqlstr, [manager,username], (error, results) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send(error);
+        } else {
+            res.json(' successfully ');
         }
     });
 })

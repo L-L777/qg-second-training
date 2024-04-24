@@ -28,12 +28,17 @@ window.addEventListener('DOMContentLoaded', function () {
             let nameBox = document.querySelector('.logo-text')
             let username = nameBox.querySelector('.username')
             username.innerHTML = data.username
+            let applyBtn = this.document.querySelector('.apply')
+            if(data.status===1){
+                applyBtn.querySelector('.status').innerHTML = "申请管理员:审核中"
+            }
+            else{
+                applyBtn.querySelector('.status').innerHTML = "申请管理员"
+            }
             draft(data.username)
-        }
-     
+        } 
 
     })
-    // 
 
     // 切换功能
     let link = nav.querySelector('.menu-links')
@@ -76,6 +81,42 @@ window.addEventListener('DOMContentLoaded', function () {
     // 个人中心
     personalCenter()
 
+    // 申请管理员
+    let applyBtn=this.document.querySelector('.apply')
+    // console.log(applyBtn);
+    applyBtn.addEventListener('click',function(){
+        if (applyBtn.querySelector('.status').textContent === "申请管理员:审核中"){
+            console.log(111);
+            return;
+        }
+        let nameBox = document.querySelector('.logo-text')
+        let username = nameBox.querySelector('.username').textContent
+        
+        // console.log(username);
+        fetch('http://localhost:3000/api/userapply', {
+            method: 'post',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json' 
+            },
+            body:JSON.stringify({username}),
+        })
+            .then(response => response.json())
+            .then(data => {
+                applyBtn.querySelector('.status').innerHTML ="申请管理员:审核中"
+                document.querySelector('.success').innerHTML = data
+                document.querySelector('.success').style.display = 'block'
+                setTimeout(() => {
+                    document.querySelector('.success').innerHTML = ""
+                    document.querySelector('.success').style.display = 'none'
+
+                }, 2000)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    })
+
     //轮播图
     let scrollBox = this.document.querySelector('.scrollpic')
     let prev = scrollBox.querySelector('.prev')
@@ -92,10 +133,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 //    console.log(data.data);
                 renderScroll(data.data)
             }
-            else {
-                alert('token验证失败')
-            }
-
+            
         })
         .catch(error => {
             console.error('Error:', error);

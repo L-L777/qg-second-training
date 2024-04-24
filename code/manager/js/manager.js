@@ -42,6 +42,7 @@ window.addEventListener('DOMContentLoaded',function(){
     let meetingBox=document.querySelector('.r_meeting')
     let dealBox=document.querySelector('.deal')
     let wantBox=document.querySelector('.want')
+    let applyBox=document.querySelector('.apply')
     for(let i=0;i<t.length;i++){
         t[i].addEventListener('click',function(){
             for(let j=0;j<t.length;j++){
@@ -51,6 +52,7 @@ window.addEventListener('DOMContentLoaded',function(){
             meetingBox.style.display="none"
             dealBox.style.display="none"
             wantBox.style.display="none"
+            applyBox.style.display="none"
             if(t[i].classList.contains("meeting")){
                 meetingBox.style.display = "flex"
             }
@@ -60,6 +62,9 @@ window.addEventListener('DOMContentLoaded',function(){
             if (t[i].classList.contains("select")) {
                 wantBox.style.display = "flex"
             }
+            if(t[i].classList.contains("person")){
+                applyBox.style.display = "flex"
+            }
         })
     }
 
@@ -67,6 +72,8 @@ window.addEventListener('DOMContentLoaded',function(){
     manageMeeting()
     // 查看反馈
     dealQuestion()
+    // 审核用户申请管理员
+    userAsk()
 
     //轮播图
     let scrollBox=this.document.querySelector('.scrollpic')
