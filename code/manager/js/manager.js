@@ -11,7 +11,18 @@ window.addEventListener('DOMContentLoaded',function(){
         },
     }).then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            // throw new Error('Network response was not ok');
+            
+                alert('token验证失败')
+                window.location.href = '/'
+                // this.document.querySelector('.fail').innerHTML = "token验证失败"
+                // this.document.querySelector('.fail').style.display = ''
+                // this.setTimeout(() => {
+                //     this.document.querySelector('.fail').innerHTML = ""
+                //     this.document.querySelector('.fail').style.display = 'none'
+                //     this.window.location = '/'
+                // }, 2000)
+        
         }
         return response.json();
     }).then(data => {
