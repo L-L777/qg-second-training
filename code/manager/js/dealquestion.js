@@ -1,3 +1,4 @@
+// 反馈疑问
 function dealQuestion(){
     let dealBox = document.querySelector('.deal')
     let token = localStorage.getItem('token')
@@ -68,6 +69,7 @@ function renderDealingData(data){
     dealingBox.innerHTML=str
     checkingQuestion()
 }
+// 查看疑问
 function checkingQuestion(){
     let dealBox = document.querySelector('.deal')
     let token = localStorage.getItem('token')
@@ -136,7 +138,7 @@ function checkingQuestion(){
             disagreeBtn.style.display = 'none'
             submitBtn.addEventListener('click',function(){
                 let answer=answerBox.querySelector('textarea').value
-                
+                // 非空处理
                 if(!answer){
                     document.querySelector('.fail').innerHTML = "反馈不能为空"
                     document.querySelector('.fail').style.display = 'block'

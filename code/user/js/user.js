@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     })
 
-    // 切换功能
+    // 侧边栏切换功能
     let link = nav.querySelector('.menu-links')
     let t = link.querySelectorAll('.t')
     let submitBox = document.querySelector('.a-submit')

@@ -337,6 +337,7 @@ function addMeeting(){
     checkingBox()
     deleteData()
 }
+// 查看
 function checkingBox(){
     let token = localStorage.getItem('token')
     let meetings = document.querySelector('.r_meeting')
@@ -416,6 +417,7 @@ function checkingBox(){
                     for (let i = 0; i < changeCont.length; i++) {
                         changeCont[i].classList.add('disabled')
                     }
+                    // 点击修改按钮
                     changeBtn.addEventListener('click', function () {
                         changeBtn.style.display = 'none'
                         keepBtn.style.display = 'inline-block'
@@ -494,7 +496,7 @@ function checkingBox(){
                         })
                       
                     })
-                    
+                    // 点击同意按钮
                     agreeBtn.addEventListener('click', function () {
                         let reasonBox = meetingBox.querySelector(".reason")
                         let reason = reasonBox.querySelector('textarea').value
@@ -544,6 +546,7 @@ function checkingBox(){
                     
                         return;
                     })
+                    // 点击驳回按钮
                     disagreeBtn.addEventListener('click', function () {
                         let reasonBox = meetingBox.querySelector(".reason")
                         let reason = reasonBox.querySelector('textarea').value

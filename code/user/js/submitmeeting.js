@@ -75,6 +75,7 @@ function submitMeeting(token) {
         };
 
     })
+    // 将所有提交框变为空
     function empty() {
         groupBox.value = ''
         contentBox.value = ''
@@ -97,6 +98,7 @@ function submitMeeting(token) {
     })
     //    提交
     btnBox.querySelector('.sub').addEventListener('click', function () {
+        // 非空判断
         if (!groupBox.value) {
             alert('组别不能为空')
             return

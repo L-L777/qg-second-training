@@ -4,7 +4,7 @@ function personalCenter(){
     let personBox = document.querySelector('.person-mes')
     let passwordBox=personBox.querySelector('.password')
     let changeBtn=passwordBox.querySelector('.change')
-    
+    // 修改密码
     changeBtn.addEventListener('click',function(){
         let nameBox = document.querySelector('.logo-text')
         let myname = nameBox.querySelector('.username').textContent 
@@ -58,6 +58,7 @@ function personalCenter(){
             console.error('Error:', error);
         });
 }
+// 渲染个人提交纪要数据
 function renderPersonalData(data){
     let token = localStorage.getItem('token')
     let personBox = document.querySelector('.person-mes')
@@ -119,6 +120,7 @@ function renderPersonalData(data){
     contentBox.innerHTML=agreeStr+disagreeStr+waitStr
     seeing()
 }
+// 查看个人提交纪要
 function seeing(){
     let token = localStorage.getItem('token')
     let personBox = document.querySelector('.person-mes')

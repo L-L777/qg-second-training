@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
     })
     
-    //切換功能
+    //侧边栏切換功能
     let link=nav.querySelector('.menu-links')
     let t=link.querySelectorAll('.t')
     let meetingBox=document.querySelector('.r_meeting')

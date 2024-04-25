@@ -1,3 +1,4 @@
+// 筛选
 function selectMeeting(data){
     // console.log(data);
     let wantBox = document.querySelector('.want')
@@ -50,6 +51,7 @@ function selectMeeting(data){
     
     
 }
+// 查看筛选的纪要
 function looking() {
     let wantBox = document.querySelector('.want')
     let selectBox = wantBox.querySelector('.select_cont')
@@ -121,6 +123,7 @@ function looking() {
             for (let i = 0; i < changeCont.length; i++) {
                 changeCont[i].classList.add('disabled')
             }
+            // 点击修改按钮
             changeBtn.addEventListener('click', function () {
                 changeBtn.style.display = 'none'
                 keepBtn.style.display = 'inline-block'
@@ -129,6 +132,7 @@ function looking() {
                 for (let i = 0; i < changeCont.length; i++) {
                     changeCont[i].classList.remove('disabled')
                 }
+                // 点击保存按钮
                 keepBtn.addEventListener('click', function () {
                     let newTheme = changeCont[0].value
                     let newContent = changeCont[1].value
@@ -201,7 +205,7 @@ function looking() {
                 })
 
             })
-
+// 点击同意按钮
             agreeBtn.addEventListener('click', function () {
                 let reasonBox = meetingBox.querySelector(".reason")
                 let reason = reasonBox.querySelector('textarea').value
@@ -251,6 +255,7 @@ function looking() {
 
                 return;
             })
+            // 点击不同意按钮
             disagreeBtn.addEventListener('click', function () {
                 let reasonBox = meetingBox.querySelector(".reason")
                 let reason = reasonBox.querySelector('textarea').value

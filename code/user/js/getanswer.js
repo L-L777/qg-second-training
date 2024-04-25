@@ -21,6 +21,7 @@ function getAnswer(){
             console.error('Error:', error);
         });
 }
+// 渲染反馈数据
 function renderAnswerData(data,username){
     let responseBox = document.querySelector('.response')
     let renderBox=responseBox.querySelector('.res')

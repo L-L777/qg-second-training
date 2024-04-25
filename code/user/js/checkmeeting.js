@@ -26,6 +26,7 @@ function checkMeeting(token) {
         });
        
 }
+// 渲染
 function renderData(data){
     let lookBox = document.querySelector('.look')
     let renderBox = lookBox.querySelector('.cont-deal')
@@ -143,6 +144,7 @@ function renderData(data){
     prev.addEventListener('click', prevClick)
    next.addEventListener('click',nextClick)
 }
+// 查看纪要
 function lookMeeting(renderBox){
     let token=localStorage.getItem('token')
     let subject = renderBox.querySelectorAll('.subject');
@@ -165,6 +167,7 @@ function lookMeeting(renderBox){
                 let hidden = subject[i].querySelector('.hidden')
                 let data = JSON.parse(hidden.innerHTML)
                 // console.log(data);
+                // 渲染对应会议信息
                 let  title=meetingBox.querySelector('.title')
                 title.querySelector('input').value=data.theme
                 let name=meetingBox.querySelector('.name')
@@ -207,6 +210,7 @@ function lookMeeting(renderBox){
                 for (let i = 0; i < changeCont.length; i++) {
                     changeCont[i].classList.add('disabled')
                 }
+                // 点击修改按钮
                 changeBtn.addEventListener('click',function(){
                     changeBtn.style.display='none'
                     keepBtn.style.display='inline-block'
@@ -215,10 +219,11 @@ function lookMeeting(renderBox){
                   for(let i=0;i<changeCont.length;i++){
                     changeCont[i].classList.remove('disabled')
                   }
+                //   点击保存按钮
                   keepBtn.addEventListener('click',function(){
                     let newTheme=changeCont[0].value
                     let newContent=changeCont[1].value
-                    
+                    // 非空判断
                     if(!newContent){
                         document.querySelector('.fail').innerHTML = "修改后会议内容不能为空"
                         document.querySelector('.fail').style.display = 'block'
@@ -285,10 +290,11 @@ function lookMeeting(renderBox){
                     }
                   })
                 })
+                // 点击提交疑问按钮
                 questionBtn.addEventListener('click', function () {
                     let questionBox = meetingBox.querySelector('.question')
                     let question = questionBox.querySelector('textarea').value
-                   
+                //    非空判断
                     if (!question) {
                         document.querySelector('.fail').innerHTML = "疑问内容不能为空"
                         document.querySelector('.fail').style.display = 'block'

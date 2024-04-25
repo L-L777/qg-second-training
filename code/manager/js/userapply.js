@@ -48,6 +48,7 @@ function userToManager(renderBox){
         let agree=btn.querySelector('.agree')
         let disagree=btn.querySelector('.disagree')
         let username=users[i].querySelector('.name').innerHTML
+        // 同意
         agree.addEventListener('click', function(){
             let object={
 username,
@@ -79,6 +80,7 @@ manager:1,
                     console.error('Error:', error);
                 });
         })
+        // 不同意
         disagree.addEventListener('click', function () {
             let object = {
                 username,
