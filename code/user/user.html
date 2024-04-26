@@ -357,11 +357,16 @@
                 modeSwitch = body.querySelector('.toggle-switch'),
                 modeText = body.querySelector('.mode-text');
             const main = document.querySelector('.main')
+            let input = searchBtn.querySelector("input")
+                let menu = document.querySelector('.menu')
+                let search = menu.querySelector(".search")
             // 点击toggle触发事件
             toggle.addEventListener('click', () => {
                 // 切换close类
                 shell.classList.toggle('close');
                 main.classList.toggle('m_close');
+                input.value = ''
+                search.style.display = 'none'
             })
             // 点击searchBtn元素时触发事件
             searchBtn.addEventListener('click', () => {
